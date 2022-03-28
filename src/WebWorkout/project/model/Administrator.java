@@ -1,5 +1,8 @@
 package WebWorkout.project.model;
 
+import WebWorkout.project.exception.NoneexistingEntityException;
+
+import java.util.Collection;
 import java.util.StringJoiner;
 
 import static WebWorkout.project.model.Role.*;

@@ -1,6 +1,9 @@
 package WebWorkout.project.model;
 
+import WebWorkout.project.exception.NoneexistingEntityException;
+
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.StringJoiner;
 
@@ -34,10 +37,5 @@ public class Coach extends User {
                 .add("dailyWorkouts=" + dailyWorkouts)
                 .add("completedWorkoutsResults=" + completedWorkoutsResults)
                 .toString();
-    }
-
-    @Override
-    public void dailyWorkout() {
-
     }
 }

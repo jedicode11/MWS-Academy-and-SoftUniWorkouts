@@ -46,11 +46,6 @@ public class Player extends User {
                 .toString();
     }
 
-    @Override
-    public void dailyWorkout() {
-
-    }
-
 
     // Start Workout "X" Time
     // Finish Workout "X" Time (LocalTime)

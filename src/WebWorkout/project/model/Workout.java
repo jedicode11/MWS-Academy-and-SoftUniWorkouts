@@ -22,16 +22,19 @@ public class Workout implements Comparable<Workout>, Identifiable<Long> {
         this.id = id;
     }
 
-    public Workout(String title, String creator, LocalDate startDate, String publisher, double workoutRatings, String tags, String description) {
+    public Workout(String title, String creator, LocalDate startDate, String publisher, double workoutRatings, String tags) {
         this.title = title;
         this.creator = creator;
         this.startDate = startDate;
         this.publisher = publisher;
         this.workoutRatings = workoutRatings;
         this.tags = tags;
-        this.description = description;
     }
 
+    public Workout(Long id, String description) {
+        this.id = id;
+        this.description = description;
+    }
 
     public Long getId() {
         return id;
@@ -57,7 +60,7 @@ public class Workout implements Comparable<Workout>, Identifiable<Long> {
         this.creator = creator;
     }
 
-    public Integer getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
