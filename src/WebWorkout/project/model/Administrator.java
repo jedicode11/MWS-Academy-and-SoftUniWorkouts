@@ -1,5 +1,7 @@
 package WebWorkout.project.model;
 
+import java.util.StringJoiner;
+
 import static WebWorkout.project.model.Role.*;
 
 public class Administrator extends User {
@@ -30,6 +32,13 @@ public class Administrator extends User {
 
     @Override
     public void dailyWorkout() {
+    }
 
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Administrator.class.getSimpleName() + "[", "]")
+                .add("email='" + email + "'")
+                .add("results='" + results + "'")
+                .toString();
     }
 }

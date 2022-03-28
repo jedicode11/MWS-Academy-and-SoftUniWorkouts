@@ -1,8 +1,11 @@
 package WebWorkout.project.model;
 
+import WebWorkout.project.dao.Identifiable;
+
 import java.time.LocalDate;
 
-public class Workout implements Comparable<Workout> {
+public class Workout implements Comparable<Workout>, Identifiable<Long> {
+    private static final long COMPLETE_WORKOUT = 10;
     private Long id;
     private String title;
     private String creator;
@@ -29,6 +32,7 @@ public class Workout implements Comparable<Workout> {
         this.description = description;
     }
 
+
     public Long getId() {
         return id;
     }
@@ -53,7 +57,7 @@ public class Workout implements Comparable<Workout> {
         this.creator = creator;
     }
 
-    public LocalDate getStartDate() {
+    public Integer getStartDate() {
         return startDate;
     }
 

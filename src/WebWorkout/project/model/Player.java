@@ -2,6 +2,7 @@ package WebWorkout.project.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 public class Player extends User {
     private List<String> assignedWorkouts = new ArrayList<>();
@@ -34,6 +35,15 @@ public class Player extends User {
 
     public void setFavoriteWorkouts(List<String> favoriteWorkouts) {
         this.favoriteWorkouts = favoriteWorkouts;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Player.class.getSimpleName() + "[", "]")
+                .add("assignedWorkouts=" + assignedWorkouts)
+                .add("completedWorkoutsResults=" + completedWorkoutsResults)
+                .add("favoriteWorkouts=" + favoriteWorkouts)
+                .toString();
     }
 
     @Override

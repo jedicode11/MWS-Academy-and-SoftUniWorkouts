@@ -2,6 +2,7 @@ package WebWorkout.project.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 public class Coach extends User {
     private List<String> dailyWorkouts = new ArrayList<>();
@@ -25,6 +26,14 @@ public class Coach extends User {
 
     public void setCompletedWorkoutsResults(List<String> completedWorkoutsResults) {
         this.completedWorkoutsResults = completedWorkoutsResults;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Coach.class.getSimpleName() + "[", "]")
+                .add("dailyWorkouts=" + dailyWorkouts)
+                .add("completedWorkoutsResults=" + completedWorkoutsResults)
+                .toString();
     }
 
     @Override
