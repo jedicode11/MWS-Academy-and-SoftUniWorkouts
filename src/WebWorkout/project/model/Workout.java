@@ -2,11 +2,13 @@ package WebWorkout.project.model;
 
 import WebWorkout.project.dao.Identifiable;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Workout implements Comparable<Workout>, Identifiable<Long> {
+public class Workout implements Comparable<Workout>, Identifiable<Long>, Serializable {
     private static final long COMPLETE_WORKOUT = 10;
-    private Long id;
+    private static long nextId = 0;
+    private Long id = ++nextId;
     private String title;
     private String creator;
     private LocalDate startDate;
@@ -22,13 +24,13 @@ public class Workout implements Comparable<Workout>, Identifiable<Long> {
         this.id = id;
     }
 
-    public Workout(String title, String creator, LocalDate startDate, String publisher, double workoutRatings, String tags) {
+    public Workout(String title, String creator, String publisher, double workoutRatings, String tags) {
         this.title = title;
         this.creator = creator;
-        this.startDate = startDate;
         this.publisher = publisher;
         this.workoutRatings = workoutRatings;
         this.tags = tags;
+        this.startDate = LocalDate.now();
     }
 
     public Workout(Long id, String description) {

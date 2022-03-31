@@ -1,18 +1,16 @@
 package WebWorkout.project.model;
 
-import WebWorkout.project.exception.NoneexistingEntityException;
+import WebWorkout.project.dao.Identifiable;
 
-import java.util.Collection;
 import java.util.StringJoiner;
 
-import static WebWorkout.project.model.Role.*;
-
-public class Administrator extends User {
+public class Administrator extends User implements Identifiable<Long> {
     private String email;
     private String results;
 
-    public Administrator(Long id, String firstName, String lastName, String username, String password, String email, String sports, Role role, int age, boolean active) {
-        super(id, firstName, lastName, username, password, email, sports, role, age, active);
+    public Administrator(Long id, String firstName, String lastName, String username, String password, String email, String sports, int age, boolean active) {
+        super(id, firstName, lastName, username, password, email, sports, age, active);
+        this.setRole(Role.ADMINISTRATOR);
     }
 
     @Override

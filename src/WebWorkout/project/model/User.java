@@ -1,9 +1,8 @@
 package WebWorkout.project.model;
 
-import WebWorkout.project.dao.UserRepository;
-import static WebWorkout.project.model.Role.*;
+import WebWorkout.project.dao.Identifiable;
 
-public abstract class User implements UserRepository { // Abstract class
+public abstract class User implements Identifiable<Long> { // Abstract class
     private Long id;
     private String firstName;
     private String lastName;
@@ -17,7 +16,10 @@ public abstract class User implements UserRepository { // Abstract class
 
     public abstract void dailyWorkout();
 
-    public User(Long id, String firstName, String lastName, String username, String password, String email, String sports, Role role, int age, boolean active) {
+    public User() {
+    }
+
+    public User(Long id, String firstName, String lastName, String username, String password, String email, String sports, int age, boolean active) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -25,7 +27,6 @@ public abstract class User implements UserRepository { // Abstract class
         this.password = password;
         this.email = email;
         this.sports = sports;
-        this.role = role;
         this.age = age;
         this.active = active;
     }

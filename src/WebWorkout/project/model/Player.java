@@ -1,16 +1,26 @@
 package WebWorkout.project.model;
 
+import WebWorkout.project.dao.Identifiable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
 
-public class Player extends User {
+public class Player extends User implements Identifiable<Long> {
     private List<String> assignedWorkouts = new ArrayList<>();
     private List<String> completedWorkoutsResults = new ArrayList<>();
     private List<String> favoriteWorkouts = new ArrayList<>();
 
-    public Player(Long id, String firstName, String lastName, String username, String password, String email, String sports, Role role, int age, boolean active) {
-        super(id, firstName, lastName, username, password, email, sports, role, age, active);
+    public Player() {
+    }
+
+    @Override
+    public void dailyWorkout() {
+    }
+
+    public Player(Long id, String firstName, String lastName, String username, String password, String email, String sports, int age, boolean active) {
+        super(id, firstName, lastName, username, password, email, sports, age, active);
+        this.setRole(Role.PLAYER);
     }
 
     public List<String> getAssignedWorkouts() {
@@ -45,6 +55,7 @@ public class Player extends User {
                 .add("favoriteWorkouts=" + favoriteWorkouts)
                 .toString();
     }
+
 
 
     // Start Workout "X" Time

@@ -4,15 +4,17 @@ import WebWorkout.project.dao.WorkoutRepository;
 import WebWorkout.project.dao.impl.WorkoutRepositoryMemoryImpl;
 import WebWorkout.project.exception.NoneexistingEntityException;
 import WebWorkout.project.model.MockWorkouts;
+import WebWorkout.project.model.Player;
 import WebWorkout.project.model.Workout;
 
 public class Main {
     public static void main(String[] args) throws NoneexistingEntityException {
-        WorkoutRepository workoutRepository = (WorkoutRepository) new WorkoutRepositoryMemoryImpl();
+        WorkoutRepository workoutRepository = new WorkoutRepositoryMemoryImpl();
         for(Workout workout : MockWorkouts.MOCK_WORKOUTS){
             workoutRepository.create(workout);
         }
 
+        System.out.println();
 
         workoutRepository.deleteById(1L);
         workoutRepository.deleteById(2L);
@@ -35,11 +37,31 @@ public class Main {
         workoutRepository.update(firstWorkout);
         System.out.println(workoutRepository.findById(5L));
 
+
         // create the object
         Workout myWorkout = new Workout();
         myWorkout.dailyWorkout();
 
         //use the object
         System.out.println("Track run: 2x100m / Push-Ups after");
+
+        Player p1 = new Player();
+        p1.setAge(25);
+        p1.setUsername("Michael J.J.");
+
+        Player p2 = new Player();
+        p2.setAge(35);
+        p2.setUsername("Jane Smith");
+        System.out.println(p1.toString());
+        System.out.println(p2);
+
+        Player p3 = new Player();
+        p3.setAge(26);
+        p3.setUsername("John Smith");
+        System.out.println(p3);
+        System.out.println(p1.equals(p3));
+        System.out.println("p1.hash:" + p1.hashCode());
+        System.out.println("p3.hash:" + p3.hashCode());
+        System.out.println(p1 == p3);
     }
 }

@@ -18,6 +18,11 @@ public class WorkoutServiceImpl implements WorkoutService{
     }
 
     @Override
+    public void loadDate() {
+
+    }
+
+    @Override
     public Collection<Workout> getAllWorkouts() {
         return null;
     }
@@ -39,11 +44,11 @@ public class WorkoutServiceImpl implements WorkoutService{
 
     @Override
     public Workout addWorkout(Workout workout) throws InvalidEntityDataException {
-        return null;
+        return workoutRepository.create(workout);
     }
 
     @Override
-    public Workout updateWorkout(Workout workout) throws NoneexistingEntityException {
+    public Workout updateWorkout(Workout workout) throws NoneexistingEntityException, InvalidEntityDataException {
         return null;
     }
 

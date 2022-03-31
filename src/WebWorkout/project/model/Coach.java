@@ -1,5 +1,6 @@
 package WebWorkout.project.model;
 
+import WebWorkout.project.dao.Identifiable;
 import WebWorkout.project.exception.NoneexistingEntityException;
 
 import java.util.ArrayList;
@@ -7,12 +8,17 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringJoiner;
 
-public class Coach extends User {
+public class Coach extends User implements Identifiable<Long> {
     private List<String> dailyWorkouts = new ArrayList<>();
     private List<String> completedWorkoutsResults = new ArrayList<>();
 
-    public Coach(Long id, String firstName, String lastName, String username, String password, String email, String sports, Role role, int age, boolean active) {
-        super(id, firstName, lastName, username, password, email, sports, role, age, active);
+    @Override
+    public void dailyWorkout() {
+    }
+
+    public Coach(Long id, String firstName, String lastName, String username, String password, String email, String sports, int age, boolean active) {
+        super(id, firstName, lastName, username, password, email, sports, age, active);
+        this.setRole(Role.COACH);
     }
 
     public List<String> getDailyWorkouts() {
