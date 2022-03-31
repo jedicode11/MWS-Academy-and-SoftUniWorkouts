@@ -19,6 +19,7 @@ public class WorkoutServiceImpl implements WorkoutService{
 
     @Override
     public void loadDate() {
+        workoutRepository.findAll();
 
     }
 
@@ -38,7 +39,7 @@ public class WorkoutServiceImpl implements WorkoutService{
     }
 
     @Override
-    public Workout getWorkoutById(Long id) throws NoneexistingEntityException {
+    public Workout getWorkoutById(Workout id) throws NoneexistingEntityException {
         return null;
     }
 
@@ -60,5 +61,10 @@ public class WorkoutServiceImpl implements WorkoutService{
     @Override
     public long count() {
         return 0;
+    }
+
+    @Override
+    public void loadData() {
+
     }
 }

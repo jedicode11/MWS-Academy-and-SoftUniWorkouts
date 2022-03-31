@@ -2,10 +2,9 @@ package WebWorkout.project.model;
 
 import WebWorkout.project.dao.Identifiable;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Workout implements Comparable<Workout>, Identifiable<Long>, Serializable {
+public class Workout implements Comparable<Workout>, Identifiable<Long> {
     private static final long COMPLETE_WORKOUT = 10;
     private static long nextId = 0;
     private Long id = ++nextId;
@@ -136,6 +135,4 @@ public class Workout implements Comparable<Workout>, Identifiable<Long>, Seriali
         return 0;
     }
 
-    public void dailyWorkout() {
-    }
 }

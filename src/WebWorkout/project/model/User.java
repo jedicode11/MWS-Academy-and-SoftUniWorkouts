@@ -14,7 +14,8 @@ public abstract class User implements Identifiable<Long> { // Abstract class
     private int age;
     private boolean active = true;
 
-    public abstract void dailyWorkout();
+    public void dailyWorkout() {
+    }
 
     public User() {
     }

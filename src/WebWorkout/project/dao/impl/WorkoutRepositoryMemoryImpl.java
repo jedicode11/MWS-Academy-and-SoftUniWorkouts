@@ -14,12 +14,12 @@ public class WorkoutRepositoryMemoryImpl implements WorkoutRepository {
 
     @Override
     public Collection<Workout> findAll() {
-        return null;
+        return workoutMap.values();
     }
 
     @Override
     public Workout findById(Long id) {
-        return null;
+        return workoutMap.get(id);
     }
 
     @Override
@@ -31,6 +31,7 @@ public class WorkoutRepositoryMemoryImpl implements WorkoutRepository {
 
     @Override
     public void update(Workout entity) throws NoneexistingEntityException {
+        
     }
 
     @Override
@@ -39,11 +40,9 @@ public class WorkoutRepositoryMemoryImpl implements WorkoutRepository {
 
     @Override
     public long count() {
+        workoutMap.values().size();
         return 0;
     }
 
-    @Override
-    public List<Workout> findAllSortedByDate(boolean ascending) {
-        return null;
-    }
+
 }

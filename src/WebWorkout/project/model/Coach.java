@@ -1,10 +1,8 @@
 package WebWorkout.project.model;
 
 import WebWorkout.project.dao.Identifiable;
-import WebWorkout.project.exception.NoneexistingEntityException;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.StringJoiner;
 
