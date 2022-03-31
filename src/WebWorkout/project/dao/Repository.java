@@ -10,7 +10,7 @@ public interface Repository<K, V extends Identifiable<K>> {
 
     V findById(K id);
 
-    Workout create(V entity);
+    V create(V entity);
     void update(V entity) throws NoneexistingEntityException;
     void deleteById(K id) throws NoneexistingEntityException;
     long count();

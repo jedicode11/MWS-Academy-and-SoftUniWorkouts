@@ -7,7 +7,7 @@ import WebWorkout.project.model.Workout;
 public interface CoachRepository extends Repository<Long, Coach> {
 
     // create coach
-    Workout create(Coach entity);
+    Coach create(Coach entity);
     void update(Coach entity) throws NoneexistingEntityException;
     Coach deleteById(Coach id) throws NoneexistingEntityException;
     long count();
