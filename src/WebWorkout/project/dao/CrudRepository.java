@@ -4,7 +4,7 @@ import WebWorkout.project.exception.NoneexistingEntityException;
 
 import java.util.Collection;
 
-public interface Repository<K, V extends Identifiable<K>> {
+public interface CrudRepository<K, V extends Identifiable<K>> {
     Collection<V> findAll();
 
     V findById(K id);

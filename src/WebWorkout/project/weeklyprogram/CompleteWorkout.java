@@ -1,7 +1,7 @@
 package WebWorkout.project.weeklyprogram;
 
 public class CompleteWorkout {
-    public static boolean trainingDays(Days days) {
+    public static boolean trainingDays(DayOfWeek days) {
         switch(days) {
             case TUE:
             case MON:
@@ -13,11 +13,11 @@ public class CompleteWorkout {
     }
 
     public static void main(String[] args) {
-        for(Days days : Days.values()){
+        for(DayOfWeek days : DayOfWeek.values()){
             System.out.printf("%s -> Training for Daily Workout = %b%n", days.toString(), trainingDays(days));
         }
-        Days weekend = Days.valueOf("SAT");
-        Days weekend2 = Days.valueOf("SUN");
+        DayOfWeek weekend = DayOfWeek.valueOf("SAT");
+        DayOfWeek weekend2 = DayOfWeek.valueOf("SUN");
         System.out.printf("%s [%d] -> Rest Day or Cardio = %b%n", weekend, weekend.ordinal(), trainingDays(weekend));
         System.out.printf("%s [%d] -> Rest Day or Cardio = %b%n", weekend2, weekend2.ordinal(), trainingDays(weekend2));
     }

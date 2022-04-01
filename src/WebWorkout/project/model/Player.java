@@ -2,6 +2,7 @@ package WebWorkout.project.model;
 
 import WebWorkout.project.dao.Identifiable;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
@@ -10,6 +11,8 @@ public class Player extends User implements Identifiable<Long> {
     private List<String> assignedWorkouts = new ArrayList<>();
     private List<String> completedWorkoutsResults = new ArrayList<>();
     private List<String> favoriteWorkouts = new ArrayList<>();
+    LocalTime startWorkout = LocalTime.parse("00:00");
+    LocalTime finishWorkout = LocalTime.parse("00:00");
 
     public Player() {
     }

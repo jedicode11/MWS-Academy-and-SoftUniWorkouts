@@ -1,5 +1,5 @@
 package WebWorkout.project.weeklyprogram;
 
-public enum Days {
+public enum DayOfWeek {
     MON, TUE, WED, THU, FRI, SAT, SUN
 }
