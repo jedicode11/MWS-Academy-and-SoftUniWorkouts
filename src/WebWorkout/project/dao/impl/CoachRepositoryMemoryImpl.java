@@ -3,7 +3,6 @@ package WebWorkout.project.dao.impl;
 import WebWorkout.project.dao.CoachRepository;
 import WebWorkout.project.exception.NoneexistingEntityException;
 import WebWorkout.project.model.Coach;
-import WebWorkout.project.model.Workout;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -30,12 +29,14 @@ public class CoachRepositoryMemoryImpl implements CoachRepository {
     }
 
     @Override
-    public void update(Coach entity) throws NoneexistingEntityException {
+    public Coach update(Coach entity) throws NoneexistingEntityException {
         var old = findById(entity.getId());
         if(old == null) {
             throw new NoneexistingEntityException("Coach with ID='"
                     + entity.getId() + "' dose not exist.");
         }
+        coachMap.put(entity.getId(), entity);
+        return old;
     }
 
     @Override
@@ -44,7 +45,11 @@ public class CoachRepositoryMemoryImpl implements CoachRepository {
 
     @Override
     public Coach deleteById(Coach id) throws NoneexistingEntityException {
-        return null;
+        var old = coachMap.remove(id);
+        if(old == null) {
+            throw new NoneexistingEntityException("Book with ID='" + id + "' does not exist.");
+        }
+        return deleteById(old);
     }
 
     @Override

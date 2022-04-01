@@ -4,7 +4,7 @@ import WebWorkout.project.dao.Identifiable;
 
 import java.time.LocalDate;
 
-public class Workout implements Comparable<Workout>, Identifiable<Long> {
+public class Workout extends User implements Identifiable<Long>, Comparable<Workout> {
     private static final long COMPLETE_WORKOUT = 10;
     private static long nextId = 0;
     private Long id = ++nextId;
@@ -131,8 +131,7 @@ public class Workout implements Comparable<Workout>, Identifiable<Long> {
     }
 
     @Override
-    public int compareTo(Workout o) {
-        return 0;
+    public int compareTo(Workout next) {
+        return getId().compareTo(next.getId());
     }
-
 }

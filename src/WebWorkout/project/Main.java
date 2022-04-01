@@ -4,7 +4,6 @@ import WebWorkout.project.dao.WorkoutRepository;
 import WebWorkout.project.dao.impl.WorkoutRepositoryMemoryImpl;
 import WebWorkout.project.exception.NoneexistingEntityException;
 import WebWorkout.project.model.MockWorkouts;
-import WebWorkout.project.model.Player;
 import WebWorkout.project.model.Workout;
 import WebWorkout.project.service.WorkoutService;
 import WebWorkout.project.service.WorkoutServiceImpl;

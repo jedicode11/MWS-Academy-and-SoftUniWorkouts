@@ -123,4 +123,5 @@ public abstract class User implements Identifiable<Long> { // Abstract class
     public void setActive(boolean active) {
         this.active = active;
     }
+
 }

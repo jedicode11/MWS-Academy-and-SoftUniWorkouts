@@ -6,7 +6,6 @@ import WebWorkout.project.model.Workout;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class WorkoutRepositoryMemoryImpl implements WorkoutRepository {
@@ -30,9 +29,25 @@ public class WorkoutRepositoryMemoryImpl implements WorkoutRepository {
     }
 
     @Override
-    public void update(Workout entity) throws NoneexistingEntityException {
-        
+    public Workout update(Workout entity) throws NoneexistingEntityException {
+        var old = findById(entity.getId());
+        if(old == null) {
+            throw new NoneexistingEntityException("Workout with ID='"
+                    + entity.getId() + "' dose not exist.");
+        }
+        workoutMap.put(entity.getId(), entity);
+        return old;
     }
+
+    @Override
+    public Workout deleteById(Workout id) throws NoneexistingEntityException {
+        var old = workoutMap.remove(id);
+        if(old == null) {
+            throw new NoneexistingEntityException("Book with ID='" + id + "' does not exist.");
+            }
+        return deleteById(old);
+    }
+
 
     @Override
     public void deleteById(Long id) throws NoneexistingEntityException {
@@ -43,6 +58,4 @@ public class WorkoutRepositoryMemoryImpl implements WorkoutRepository {
         workoutMap.values().size();
         return 0;
     }
-
-
 }
