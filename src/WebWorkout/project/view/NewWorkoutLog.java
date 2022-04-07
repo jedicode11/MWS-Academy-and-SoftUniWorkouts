@@ -3,6 +3,7 @@ package WebWorkout.project.view;
 import WebWorkout.project.model.Workout;
 
 import java.time.LocalDate;
+import java.time.MonthDay;
 import java.util.Scanner;
 
 public class NewWorkoutLog {

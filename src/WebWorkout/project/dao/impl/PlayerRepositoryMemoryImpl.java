@@ -4,13 +4,11 @@ import WebWorkout.project.dao.PlayerRepository;
 import WebWorkout.project.exception.NoneexistingEntityException;
 import WebWorkout.project.model.Player;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class PlayerRepositoryMemoryImpl implements PlayerRepository {
     private Map<Long, Player> playerMap = new HashMap<>();
-
+    private NavigableMap<Integer, List<Player>> findPlayersById = new TreeMap<>();
 
     @Override
     public Collection<Player> findAll() {
@@ -18,8 +16,32 @@ public class PlayerRepositoryMemoryImpl implements PlayerRepository {
     }
 
     @Override
+    public void addAll(Collection<Player> entity) {
+
+    }
+
+    @Override
+    public void clear() {
+
+    }
+
+    @Override
     public Player findById(Long id) {
         return playerMap.get(id);
+    }
+
+    @Override
+    public List<Player> findPlayersById(boolean ascending) {
+        var valuesMap =  findPlayersById;
+        if(!ascending) {
+            valuesMap = valuesMap.descendingMap();
+        }
+        System.out.println("Player.findAllSorted() called.");
+        List<Player> results = new ArrayList<>();
+        for(List<Player> findPlayersById: valuesMap.values()){
+            results.addAll(findPlayersById);
+        }
+        return results;
     }
 
     @Override
@@ -37,12 +59,12 @@ public class PlayerRepositoryMemoryImpl implements PlayerRepository {
                     + entity.getId() + "' dose not exist.");
         }
         playerMap.put(entity.getId(), entity);
-        return old;
+        return entity;
     }
 
     @Override
-    public void deleteById(Long id) throws NoneexistingEntityException {
-
+    public Player deleteById(Long id) throws NoneexistingEntityException {
+        return null;
     }
 
     @Override

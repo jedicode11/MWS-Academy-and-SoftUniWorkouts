@@ -1,9 +1,8 @@
-package WebWorkout.project.validator;
+package WebWorkout.project.util;
 
 import WebWorkout.project.exception.ConstraintViolationException;
 import WebWorkout.project.model.Workout;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +21,7 @@ public class WorkoutValidator {
                             "Tags length should be between 2 and 50 characters"));
         }
         if(violations.size() > 0) {
-            throw new ConstraintViolationException("Invalid book field", violations);
+            throw new ConstraintViolationException("Invalid workout field", violations);
         }
     }
 }

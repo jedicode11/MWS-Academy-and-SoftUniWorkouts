@@ -2,7 +2,9 @@ package WebWorkout.project.model;
 
 import WebWorkout.project.dao.Identifiable;
 
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 public class Workout extends User implements Identifiable<Long>, Comparable<Workout> {
     private static final long COMPLETE_WORKOUT = 10;

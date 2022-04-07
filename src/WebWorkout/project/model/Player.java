@@ -5,14 +5,16 @@ import WebWorkout.project.dao.Identifiable;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.StringJoiner;
 
 public class Player extends User implements Identifiable<Long> {
     private List<String> assignedWorkouts = new ArrayList<>();
     private List<String> completedWorkoutsResults = new ArrayList<>();
     private List<String> favoriteWorkouts = new ArrayList<>();
-    LocalTime startWorkout = LocalTime.parse("00:00");
-    LocalTime finishWorkout = LocalTime.parse("00:00");
+
+    LocalTime startWorkout = LocalTime.parse("08:00AM");
+    LocalTime finishWorkout = LocalTime.parse("06:00PM");
 
     public Player() {
     }
@@ -59,8 +61,23 @@ public class Player extends User implements Identifiable<Long> {
                 .toString();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Player)) return false;
+
+        Player player = (Player) o;
+
+        if (getAssignedWorkouts() != null ? !getAssignedWorkouts().equals(player.getAssignedWorkouts()) : player.getAssignedWorkouts() != null)
+            return false;
+        if (getCompletedWorkoutsResults() != null ? !getCompletedWorkoutsResults().equals(player.getCompletedWorkoutsResults()) : player.getCompletedWorkoutsResults() != null)
+            return false;
+        if (getFavoriteWorkouts() != null ? !getFavoriteWorkouts().equals(player.getFavoriteWorkouts()) : player.getFavoriteWorkouts() != null)
+            return false;
+        if (!Objects.equals(startWorkout, player.startWorkout))
+            return false;
+        return Objects.equals(finishWorkout, player.finishWorkout);
+    }
 
 
-    // Start Workout "X" Time
-    // Finish Workout "X" Time (LocalTime)
 }

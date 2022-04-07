@@ -1,6 +1,6 @@
 package WebWorkout.project;
 
-import WebWorkout.project.dao.WorkoutRepository;
+import WebWorkout.project.dao.*;
 import WebWorkout.project.dao.impl.WorkoutRepositoryMemoryImpl;
 import WebWorkout.project.exception.NoneexistingEntityException;
 import WebWorkout.project.model.MockWorkouts;

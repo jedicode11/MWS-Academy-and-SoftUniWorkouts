@@ -3,7 +3,9 @@ package WebWorkout.project.dao;
 public interface DaoFactory {
     WorkoutRepository createWorkoutRepository();
 
-    WorkoutRepository createWorkoutRepository(String username);
+    WorkoutRepository createWorkoutRepository(String dbFileName);
+
+    WorkoutRepository createWorkoutRepositoryFile(String dbFileName);
 
     UserRepository createUserRepository();
 }

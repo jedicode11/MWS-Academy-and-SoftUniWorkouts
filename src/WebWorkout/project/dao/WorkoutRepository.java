@@ -3,10 +3,17 @@ package WebWorkout.project.dao;
 import WebWorkout.project.exception.NoneexistingEntityException;
 import WebWorkout.project.model.Workout;
 
-public interface WorkoutRepository extends CrudRepository<Long, Workout> {
+import java.util.List;
 
-    Workout create(Workout entity);
-    Workout update(Workout entity) throws NoneexistingEntityException;
+
+public interface WorkoutRepository extends CrudRepository<Long, Workout> {
     Workout deleteById(Workout id) throws NoneexistingEntityException;
-    long count();
+
+    void load();
+
+    void save();
+
+    List<Workout> findALlSortedByDate(boolean ascending);
+
+    List<Workout> findAllSortedByDate(boolean ascending);
 }
