@@ -2,7 +2,7 @@ package WebWorkout.project.model;
 
 import WebWorkout.project.dao.Identifiable;
 
-public class Person implements Identifiable<Long> {
+public class Person extends User implements Identifiable<Long> {
     private static long nextId = 0;
     private Long id; // blank final
     private String firstName;
@@ -20,6 +20,10 @@ public class Person implements Identifiable<Long> {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+    }
+
+    public Person() {
+
     }
 
     @Override
@@ -60,6 +64,7 @@ public class Person implements Identifiable<Long> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Person)) return false;
+        if (!super.equals(o)) return false;
 
         Person person = (Person) o;
 
@@ -72,14 +77,15 @@ public class Person implements Identifiable<Long> {
 
     @Override
     public int hashCode() {
-        int result = getId() != null ? getId().hashCode() : 0;
+        int result = super.hashCode();
+        result = 31 * result + (getId() != null ? getId().hashCode() : 0);
         result = 31 * result + (getFirstName() != null ? getFirstName().hashCode() : 0);
         result = 31 * result + (getLastName() != null ? getLastName().hashCode() : 0);
         result = 31 * result + getAge();
         return result;
     }
+
     public String format(final String prefix) {
-//        prefix = prefix.toUpperCase();
         return String.format("%s| %4d | %-12.12s | %-12.12s | %3d |",
                 prefix, id, firstName, lastName, age);
     }
@@ -87,8 +93,12 @@ public class Person implements Identifiable<Long> {
     public static void main(String[] args) {
         var p1 = new Person(1L, "Bill", "Morison", 35);
         var p2 = new Person(2L, "Micheal", "James", 28);
+        var p3 = new Person(3L, "Torstein", "Horgmo", 27);
+        var p4= new Person(4L, "Jaden", "Dreams", 31);
         System.out.println(p1.format("Person "));
         System.out.println(p2.format("Person "));
+        System.out.println(p3.format("Person "));
+        System.out.println(p4.format("Person "));
     }
 
 }

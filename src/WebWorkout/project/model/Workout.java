@@ -5,6 +5,7 @@ import WebWorkout.project.dao.Identifiable;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.StringJoiner;
 
 public class Workout extends User implements Identifiable<Long>, Comparable<Workout> {
     private static final long COMPLETE_WORKOUT = 10;
@@ -105,16 +106,16 @@ public class Workout extends User implements Identifiable<Long>, Comparable<Work
 
     @Override
     public String toString() {
-        return "Workout{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", creator='" + creator + '\'' +
-                ", startDate=" + startDate +
-                ", publisher='" + publisher + '\'' +
-                ", workoutRatings=" + workoutRatings +
-                ", tags='" + tags + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+        return new StringJoiner(", ", Workout.class.getSimpleName() + "[", "]")
+                .add("id=" + id)
+                .add("title='" + title + "'")
+                .add("creator='" + creator + "'")
+                .add("startDate=" + startDate)
+                .add("publisher='" + publisher + "'")
+                .add("workoutRatings=" + workoutRatings)
+                .add("tags='" + tags + "'")
+                .add("description='" + description + "'")
+                .toString();
     }
 
     @Override

@@ -7,6 +7,9 @@ import java.util.List;
 
 
 public interface WorkoutRepository extends CrudRepository<Long, Workout> {
+
+    Workout create(Workout entity);
+    Workout update(Workout entity) throws NoneexistingEntityException;
     Workout deleteById(Workout id) throws NoneexistingEntityException;
 
     void load();

@@ -12,9 +12,7 @@ public interface WorkoutService {
     void loadDate();
 
     Collection<Workout> getAllWorkouts();
-
     List<Workout> getAllWorkouts(Comparator<Workout> comp);
-
     List<Workout> getAllWorkoutsByDate(boolean ascending);
 
     Workout getWorkoutById(Workout id) throws NoneexistingEntityException;

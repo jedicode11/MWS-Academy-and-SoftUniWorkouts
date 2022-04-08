@@ -52,7 +52,7 @@ public class WorkoutRepositoryMemoryImpl implements WorkoutRepository {
     public Workout deleteById(Workout id) throws NoneexistingEntityException {
         var old = workoutsByDate.remove(id);
         if(old == null) {
-            throw new NoneexistingEntityException("Book with ID='" + id + "' does not exist.");
+            throw new NoneexistingEntityException("Workout with ID='" + id + "' does not exist.");
         }
         return deleteById(old);
     }

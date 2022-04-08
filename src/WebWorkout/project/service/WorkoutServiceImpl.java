@@ -4,22 +4,29 @@ import WebWorkout.project.dao.WorkoutRepository;
 import WebWorkout.project.exception.InvalidEntityDataException;
 import WebWorkout.project.exception.NoneexistingEntityException;
 import WebWorkout.project.model.Workout;
+import WebWorkout.project.util.WorkoutValidator;
 
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 
-
 public class WorkoutServiceImpl implements WorkoutService{
     private final WorkoutRepository workoutRepository;
+    private final WorkoutValidator workoutValidator;
 
     public WorkoutServiceImpl(WorkoutRepository workoutRepository) {
         this.workoutRepository = workoutRepository;
+        this.workoutValidator = new WorkoutValidator();
+    }
+
+    public WorkoutServiceImpl(WorkoutRepository workoutRepository, WorkoutValidator workoutValidator) {
+        this.workoutRepository = workoutRepository;
+        this.workoutValidator = workoutValidator;
     }
 
     @Override
     public void loadDate() {
-        workoutRepository.findAll();
+        workoutRepository.load();
 
     }
 

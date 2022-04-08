@@ -22,15 +22,15 @@ public class WorkoutController {
                     workoutService.loadData();
                     return "Workouts loaded successfully.";
                 }),
-                new Menu.Option("Print All Books", () -> {
-                    var books = workoutService.getAllWorkouts();
-                    books.forEach(System.out::println);
-                    return "Total book count: " + books.size();
+                new Menu.Option("Print All Workouts", () -> {
+                    var workouts = workoutService.getAllWorkouts();
+                    workouts.forEach(System.out::println);
+                    return "Total workout count: " + workoutService.getAllWorkouts();
                 }),
                 new Menu.Option("Add New books", () -> {
                     Workout workout = new NewWorkoutLog().input();
                     var workouts = workoutService.getWorkoutById(workout);
-                    return String.format("Workout ID:%s: '%s' added successfull");
+                    return "Workout ID:%s: '%s' added successfully";
                 })
         ));
         menu.show();

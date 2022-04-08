@@ -64,14 +64,14 @@ public class PlayerRepositoryMemoryImpl implements PlayerRepository {
 
     @Override
     public Player deleteById(Long id) throws NoneexistingEntityException {
-        return null;
+        return playerMap.remove(id);
     }
 
     @Override
     public Player deleteById(Player id) throws NoneexistingEntityException {
         var old = playerMap.remove(id);
         if(old == null) {
-            throw new NoneexistingEntityException("Book with ID='" + id + "' does not exist.");
+            throw new NoneexistingEntityException("Workout with ID='" + id + "' does not exist.");
         }
         return deleteById(old);
     }

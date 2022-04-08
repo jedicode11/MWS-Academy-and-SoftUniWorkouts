@@ -9,7 +9,6 @@ public interface PlayerRepository extends CrudRepository<Long, Player> {
 
     List<Player> findPlayersById(boolean ascending);
 
-
     Player create(Player entity);
     Player update(Player entity) throws NoneexistingEntityException;
     Player deleteById(Player id) throws NoneexistingEntityException;
