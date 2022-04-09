@@ -6,8 +6,6 @@ import WebWorkout.project.exception.NoneexistingEntityException;
 import WebWorkout.project.model.Player;
 
 import java.util.Collection;
-import java.util.Comparator;
-import java.util.List;
 
 public class PlayerServiceImpl implements PlayerService {
     private final PlayerRepository playerRepository;
@@ -17,23 +15,7 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
-    public void loadDate() {
-        playerRepository.findAll();
-
-    }
-
-    @Override
     public Collection<Player> getAllPlayers() {
-        return null;
-    }
-
-    @Override
-    public List<Player> getAllPlayers(Comparator<Player> comp) {
-        return null;
-    }
-
-    @Override
-    public List<Player> getAllPlayersByDate(boolean ascending) {
         return null;
     }
 
@@ -60,10 +42,5 @@ public class PlayerServiceImpl implements PlayerService {
     @Override
     public long count() {
         return 0;
-    }
-
-    @Override
-    public void loadData() {
-
     }
 }

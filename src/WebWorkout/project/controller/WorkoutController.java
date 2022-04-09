@@ -19,7 +19,6 @@ public class WorkoutController {
         var menu = new Menu("Main Menu", List.of(
                 new Menu.Option("Generate Workouts", () -> {
                     System.out.println("Generate Workouts ...");
-                    workoutService.loadData();
                     return "Workouts loaded successfully.";
                 }),
                 new Menu.Option("Print All Workouts", () -> {

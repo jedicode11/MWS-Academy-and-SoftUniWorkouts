@@ -17,7 +17,6 @@ public class Workout extends User implements Identifiable<Long>, Comparable<Work
     private String publisher;
     private double workoutRatings;
     private String tags;
-    private String description;
 
     public Workout() {
     }
@@ -37,7 +36,6 @@ public class Workout extends User implements Identifiable<Long>, Comparable<Work
 
     public Workout(Long id, String description) {
         this.id = id;
-        this.description = description;
     }
 
     public Long getId() {
@@ -96,14 +94,6 @@ public class Workout extends User implements Identifiable<Long>, Comparable<Work
         this.tags = tags;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     @Override
     public String toString() {
         return new StringJoiner(", ", Workout.class.getSimpleName() + "[", "]")
@@ -114,7 +104,6 @@ public class Workout extends User implements Identifiable<Long>, Comparable<Work
                 .add("publisher='" + publisher + "'")
                 .add("workoutRatings=" + workoutRatings)
                 .add("tags='" + tags + "'")
-                .add("description='" + description + "'")
                 .toString();
     }
 

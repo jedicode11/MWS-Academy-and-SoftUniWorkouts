@@ -16,15 +16,6 @@ public class CoachRepositoryMemoryImpl implements CoachRepository {
         return coachMap.values();
     }
 
-    @Override
-    public void addAll(Collection<Coach> entity) {
-
-    }
-
-    @Override
-    public void clear() {
-
-    }
 
     @Override
     public Coach findById(Long id) {
@@ -51,18 +42,11 @@ public class CoachRepositoryMemoryImpl implements CoachRepository {
 
     @Override
     public Coach deleteById(Long id) throws NoneexistingEntityException {
-
-        return null;
-    }
-
-
-    @Override
-    public Coach deleteById(Coach id) throws NoneexistingEntityException {
         var old = coachMap.remove(id);
         if(old == null) {
             throw new NoneexistingEntityException("Book with ID='" + id + "' does not exist.");
         }
-        return deleteById(old);
+        return old;
     }
 
     @Override

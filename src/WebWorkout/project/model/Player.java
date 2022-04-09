@@ -2,6 +2,7 @@ package WebWorkout.project.model;
 
 import WebWorkout.project.dao.Identifiable;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,8 +14,8 @@ public class Player extends User implements Identifiable<Long> {
     private List<String> completedWorkoutsResults = new ArrayList<>();
     private List<String> favoriteWorkouts = new ArrayList<>();
 
-    LocalTime startWorkout = LocalTime.parse("08:00AM");
-    LocalTime finishWorkout = LocalTime.parse("06:00PM");
+    LocalDateTime startWorkout = LocalDateTime.now();
+    LocalDateTime finishWorkout = LocalDateTime.now();
 
     public Player() {
     }
@@ -55,9 +56,16 @@ public class Player extends User implements Identifiable<Long> {
     @Override
     public String toString() {
         return new StringJoiner(", ", Player.class.getSimpleName() + "[", "]")
-                .add("assignedWorkouts=" + assignedWorkouts)
-                .add("completedWorkoutsResults=" + completedWorkoutsResults)
-                .add("favoriteWorkouts=" + favoriteWorkouts)
+                .add("id=" + getId())
+                .add("firstName='" + getFirstName() + "'")
+                .add("lastName='" + getLastName() + "'")
+                .add("username='" + getUsername() + "'")
+                .add("password='" + getPassword() + "'")
+                .add("email='" + getEmail() + "'")
+                .add("sports='" + getSports() + "'")
+                .add("role=" + getRole())
+                .add("age=" + getAge())
+                .add("active=" + isActive())
                 .toString();
     }
 

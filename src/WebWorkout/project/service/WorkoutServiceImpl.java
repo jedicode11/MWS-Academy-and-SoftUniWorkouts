@@ -25,23 +25,7 @@ public class WorkoutServiceImpl implements WorkoutService{
     }
 
     @Override
-    public void loadDate() {
-        workoutRepository.load();
-
-    }
-
-    @Override
     public Collection<Workout> getAllWorkouts() {
-        return null;
-    }
-
-    @Override
-    public List<Workout> getAllWorkouts(Comparator<Workout> comp) {
-        return null;
-    }
-
-    @Override
-    public List<Workout> getAllWorkoutsByDate(boolean ascending) {
         return null;
     }
 
@@ -68,10 +52,5 @@ public class WorkoutServiceImpl implements WorkoutService{
     @Override
     public long count() {
         return 0;
-    }
-
-    @Override
-    public void loadData() {
-
     }
 }
